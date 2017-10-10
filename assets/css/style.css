@@ -5,7 +5,7 @@ body, html {
 
 .bg { 
     /* The image used */
-    background-image: url("../assets/images/FFXIV.png");
+    background-image: url("../images/theShard.gif");
 
     /* Full height */
     height: 100%; 
@@ -14,4 +14,16 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+h1 {
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+    color: rgb(243, 117, 233);
+}
+
+.crystal-image {
+    width: 250px;
+    height: 250px;
 }
