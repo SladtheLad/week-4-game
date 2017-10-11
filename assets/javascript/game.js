@@ -1,15 +1,17 @@
 // * Want to input a reset button
 // 
-var targetNumber = 97;
-var images = ["Aughra.jpg", "fizgig.jpg", "Kira.jpg", "Jen.jpg"];
+var targetNumber = Math.floor(Math.random() * ((200 - 50) + 1) + 50);
+var images = [ "fizgig.jpg", "Aughra.jpg", "Kira.jpg", "Jen.jpg"];
+var crystalValue;
 
+var reset = $("<img>", {id: "reset", src: "assets/images/DarkCrystalPoster.jpg"});
+$("#reset").append(reset);
 
 $("#number-to-guess").text(targetNumber);
-
 var counter = 0;
 var numberOptions = [10, 5, 3, 1];
 
-// I still want to figure out how to append different images in this for loop*****************8
+//Creates a for loop to create my images to click
 for (var i = 0; i < numberOptions.length; i++) {
     var imageCrystal = $("<img>", {class: "chracter-image", src: "assets/images/" + images[i]});
     imageCrystal.addClass("character-image");
@@ -17,8 +19,10 @@ for (var i = 0; i < numberOptions.length; i++) {
     $("#characters").append(imageCrystal);
 }
 
+
+//My click event
 $(".character-image").on("click", function () {
-    var crystalValue = ($(this).attr("data-crystalvalue"));
+    crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
     counter += crystalValue;
 
@@ -32,4 +36,11 @@ $(".character-image").on("click", function () {
         alert("You lose!!");
     }
 
+});
+
+//Reset click event
+$("#reset").on("click", function() {
+    counter = 0;
+    crystalValue = 0;
+    alert("You restarted!");
 });
