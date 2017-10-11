@@ -1,6 +1,9 @@
 body, html {
     height: 100%;
     margin: 0;
+    font-size: 34px;
+    font-family: 'Metamorphous', cursive;
+
 }
 
 .bg { 
@@ -19,11 +22,13 @@ body, html {
 h1 {
     margin: 0;
     padding: 30px;
+    padding-bottom: 400px;
     text-align: center;
     color: rgb(243, 117, 233);
 }
 
-.crystal-image {
-    width: 250px;
-    height: 250px;
+.character-image {
+    margin-left: 60px;
+    width: 400px;
+    height: 300px;
 }

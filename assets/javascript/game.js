@@ -1,5 +1,8 @@
-
+// * Want to input a reset button
+// 
 var targetNumber = 97;
+var images = ["Aughra.jpg", "fizgig.jpg", "Kira.jpg", "Jen.jpg"];
+
 
 $("#number-to-guess").text(targetNumber);
 
@@ -8,14 +11,13 @@ var numberOptions = [10, 5, 3, 1];
 
 // I still want to figure out how to append different images in this for loop*****************8
 for (var i = 0; i < numberOptions.length; i++) {
-    var imageCrystal = $("<img>");
-    imageCrystal.addClass("crystal-image");
-    imageCrystal.attr("src", "assets/images/ff3.jpg");
+    var imageCrystal = $("<img>", {class: "chracter-image", src: "assets/images/" + images[i]});
+    imageCrystal.addClass("character-image");
     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
-    $("#crystals").append(imageCrystal);
+    $("#characters").append(imageCrystal);
 }
 
-$(".crystal-image").on("click", function () {
+$(".character-image").on("click", function () {
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
     counter += crystalValue;
