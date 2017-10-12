@@ -1,41 +1,53 @@
 // * Want to input a reset button
 // 
-var targetNumber = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+var numberToGuess = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+$("#number-to-guess").text(numberToGuess);
+
 var images = [ "fizgig.jpg", "Aughra.jpg", "Kira.jpg", "Jen.jpg"];
-var crystalValue;
+var imageCharacter;
+var characterValue;
+
+var wins = 0;
+$("#wins").append(wins);
+
+var losses = 0;
+$("#losses").append(losses);
+
+var counter = 0;
 
 var reset = $("<img>", {id: "reset", src: "assets/images/DarkCrystalPoster.jpg"});
 $("#reset").append(reset);
 
-$("#number-to-guess").text(targetNumber);
-var counter = 0;
+var numberOptions = [Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1), 
+    Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1),];
 
-var numberOptions = [10, 5, 3, 1];
 
 //Creates a for loop to create my images to click
 for (var i = 0; i < numberOptions.length; i++) {
-    var imageCrystal = $("<img>", {class: "character-image", css: {margin: "0 50px 0 50px"}, src: "assets/images/" + images[i]});
-    imageCrystal.addClass("character-image");
-    imageCrystal.attr("data-crystalvalue", numberOptions[i]);
-    $("#characters").append(imageCrystal);
+    imageCharacter = $("<img>", {class: "character-image", css: {margin: "0 50px 0 50px"}, src: "assets/images/" + images[i]});
+    imageCharacter.addClass("character-image");
+    imageCharacter.attr("data-characterValue", numberOptions[i]);
+    $("#characters").append(imageCharacter);
 }
 
 
 //My click event
 $(".character-image").on("click", function () {
-    crystalValue = ($(this).attr("data-crystalvalue"));
-    crystalValue = parseInt(crystalValue);
-    counter += crystalValue;
+    characterValue = ($(this).attr("data-characterValue"));
+    characterValue = parseInt(characterValue);
+    counter += characterValue;
     $("#counter").append(counter);
 
     alert("New score: " + counter);
 
-    if (counter === targetNumber) {
+    if (counter === numberToGuess) {
         alert("You win!");
+
     }
 
-    else if (counter >= targetNumber) {
+    else if (counter >= numberToGuess) {
         alert("You lose!!");
+
     }
 
 });
@@ -43,6 +55,10 @@ $(".character-image").on("click", function () {
 //Reset click event
 $("#reset").on("click", function() {
     counter = 0;
-    crystalValue = 0;
+    characterValue = 0;
+    numberToGuess = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+    numberOptions = [Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1),
+    Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1),];
     alert("You restarted!");
+    return false;
 });
