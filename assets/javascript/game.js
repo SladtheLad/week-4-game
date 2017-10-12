@@ -1,23 +1,37 @@
-// * Want to input a reset button
-// 
+//GLOBALS
+var wins = 0;
+var losses = 0;
+var currentScore = 0;
 var numberToGuess = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
-$("#number-to-guess").text(numberToGuess);
 
+//adds random numbers to my characters
+var fizgig = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+var aughra = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+var kira = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
+var jen = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
 var images = [ "fizgig.jpg", "Aughra.jpg", "Kira.jpg", "Jen.jpg"];
 var imageCharacter;
 var characterValue;
 
-
+//updates counter
+var updateCounter = function () {
+    $("#current-score").empty();
+    $("#current-score").append(currentScore);
+    $("#wins").empty();
+    $("#wins").append(wins);
+    $("#losses").empty();
+    $("#losses").append(losses);
+}
 // Still need to append wins or losses to the screen**********
-var wins = 0;
-$("#wins").append(wins);
 
-var losses = 0;
-$("#losses").append(losses);
+
+/*  $("#number-to-guess").text(numberToGuess);
+
+
 
 var counter = 0;
 var currentTotal;
-
+*/
 
 
 var numberOptions = [Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1), 
@@ -63,3 +77,5 @@ $("#reset").on("click", function() {
     counter = 0;
     characterValue = 0;
 });
+
+
