@@ -43,9 +43,11 @@ var restart = function () {
 var play = function () {
     if (currentScore == numberToGuess) {
         wins = wins + 1;
+        alert("You thwarted the Skeskis!")
         restart();
     } else if (currentScore > numberToGuess) {
         losses = losses + 1;
+        alert("You dropped the shard...")
         restart();
     } else {
         updateCounter();
