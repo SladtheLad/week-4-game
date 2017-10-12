@@ -1,6 +1,6 @@
 // * Want to input a reset button
 // 
-var targetNumber = Math.floor(Math.random() * ((200 - 50) + 1) + 50);
+var targetNumber = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
 var images = [ "fizgig.jpg", "Aughra.jpg", "Kira.jpg", "Jen.jpg"];
 var crystalValue;
 
@@ -9,11 +9,12 @@ $("#reset").append(reset);
 
 $("#number-to-guess").text(targetNumber);
 var counter = 0;
+
 var numberOptions = [10, 5, 3, 1];
 
 //Creates a for loop to create my images to click
 for (var i = 0; i < numberOptions.length; i++) {
-    var imageCrystal = $("<img>", {class: "chracter-image", src: "assets/images/" + images[i]});
+    var imageCrystal = $("<img>", {class: "character-image col-md-3", css: {margin: "0 50px 0 50px"}, src: "assets/images/" + images[i]});
     imageCrystal.addClass("character-image");
     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
     $("#characters").append(imageCrystal);
@@ -25,6 +26,7 @@ $(".character-image").on("click", function () {
     crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
     counter += crystalValue;
+    $("#counter").append(counter);
 
     alert("New score: " + counter);
 
