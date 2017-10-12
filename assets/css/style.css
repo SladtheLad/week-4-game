@@ -24,26 +24,32 @@ body, html {
 h1 {
     margin: 0;
     padding: 30px;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .3);
 }
 
 #instructions {
-    margin-top: 50px;
-    padding: 10px;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .3);
     line-height: 24px;
+    display: inline-block;
 }
 
-#reset-row {
-    text-align: left;
+#resetCol {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+#current-total {
+    margin-top: 50px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .3);
+
 }
 
 #character-row {
     width: 100%;
     margin-top: 100px;
     margin-bottom: 100px;
-    text-align: center;
+    text-align: center;  
 }
 
 .character-image {

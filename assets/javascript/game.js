@@ -14,7 +14,7 @@ var numberOptions = [10, 5, 3, 1];
 
 //Creates a for loop to create my images to click
 for (var i = 0; i < numberOptions.length; i++) {
-    var imageCrystal = $("<img>", {class: "character-image col-md-3", css: {margin: "0 50px 0 50px"}, src: "assets/images/" + images[i]});
+    var imageCrystal = $("<img>", {class: "character-image", css: {margin: "0 50px 0 50px"}, src: "assets/images/" + images[i]});
     imageCrystal.addClass("character-image");
     imageCrystal.attr("data-crystalvalue", numberOptions[i]);
     $("#characters").append(imageCrystal);

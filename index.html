@@ -20,16 +20,16 @@
 
     <div id="bg">
 
-        <div class="container row">
-            <h1 class="col-md-6 col-md-offset-7">The Dark Crystal Character(Crystal) Game</h1>
+        <div class="row">
+            <h1 class="col-md-4 col-md-offset-4">The Dark Crystal Character(Crystal) Game</h1>
         </div>
 
-        <div class="container row">
-            <h1 class="col-md-4 col-md-offset-1">Number to Guess:
+        <div class="row">
+            <h1 class="col-md-3">Number to Guess:
                 <span id="number-to-guess"></span>
             </h1>
 
-            <div class="container" id="instructions">
+            <div class="col-md-6" id="instructions">
                 <p>You will be given a random number at the start of the game.</p>
 
                 <p>There are four characters from the movie below. By clicking on a character you will add a specific amount
@@ -42,17 +42,20 @@
 
                 <p>Each time the game starts, the game will change the values of each character.</p>
             </div>
+            <div class="col-md-3" id="resetCol">
+                <h3>Reset
+                    <div id="reset"></div>
+                </h3>
+            </div>
         </div>
 
-
-        <div class="container row" id="reset-row">
-            <h3>Reset
-                <div id="reset"></div>
-                <div id="current-total">Your current total: <span id="counter"></span></div>
-            </h3>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" id="current-total">Your current total:
+                <span id="crystalValue"></span>
+            </div>
         </div>
 
-        <div class="container row" id="character-row">
+        <div class="row" id="character-row">
             <div id="characters"></div>
         </div>
 
