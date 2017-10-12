@@ -4,14 +4,15 @@ var losses = 0;
 var currentScore = 0;
 var numberToGuess = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
 
+var counter = 0;
+var currentTotal;
+
 //adds random numbers to my characters
 var fizgig = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
 var aughra = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
 var kira = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
 var jen = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
-var images = [ "fizgig.jpg", "Aughra.jpg", "Kira.jpg", "Jen.jpg"];
-var imageCharacter;
-var characterValue;
+
 
 //updates counter
 var updateCounter = function () {
@@ -22,60 +23,77 @@ var updateCounter = function () {
     $("#losses").empty();
     $("#losses").append(losses);
 }
-// Still need to append wins or losses to the screen**********
 
+//restart function
+var restart = function () {
+    currentScore = 0;
+    numberToGuess = Math.floor((Math.random() * 100) + 19);
 
-/*  $("#number-to-guess").text(numberToGuess);
+    $("#number-to-guess").empty();
+    $("#number-to-guess").append(numberToGuess);
 
-
-
-var counter = 0;
-var currentTotal;
-*/
-
-
-var numberOptions = [Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1), 
-    Math.floor(Math.random() * ((12 - 1) + 1) + 1), Math.floor(Math.random() * ((12 - 1) + 1) + 1),];
-
-
-//Creates a for loop to create my images to click and assigns them a number
-for (var i = 0; i < numberOptions.length; i++) {
-    imageCharacter = $("<img>", {class: "character-image", css: {margin: "0 50px 0 50px"}, src: "assets/images/" + images[i]});
-    imageCharacter.addClass("character-image");
-    imageCharacter.attr("data-characterValue", numberOptions[i]);
-    $("#characters").append(imageCharacter);
+    fizgig = Math.floor((Math.random() * 12) + 1);
+    aughra = Math.floor((Math.random() * 12) + 1);
+    kira = Math.floor((Math.random() * 12) + 1);
+    jen = Math.floor((Math.random() * 12) + 1);
+    //alert('restart');
+    updateCounter();
 }
 
-
-
-//My click event
-$(".character-image").on("click", function () {
-    characterValue = ($(this).attr("data-characterValue"));
-    characterValue = parseInt(characterValue);
-    counter += characterValue;
-    $("#counter").append(counter);
-
-    alert("New score: " + counter);
-
-    if (counter === numberToGuess) {
-        alert("You win!");
-
+var play = function () {
+    if (currentScore == numberToGuess) {
+        wins = wins + 1;
+        restart();
+    } else if (currentScore > numberToGuess) {
+        losses = losses + 1;
+        restart();
+    } else {
+        updateCounter();
     }
+}
+$("#number-to-guess").append(numberToGuess);
 
-    else if (counter >= numberToGuess) {
-        alert("You lose!!");
+$("current-score").append(currentScore);
 
-    }
+$(document).ready(function () {
 
+    $("#fizgig").click(function () {
+        currentScore = currentScore + fizgig;
+        play();
+    })
+    $("#aughra").click(function () {
+        currentScore = currentScore + aughra;
+        play();
+    })
+    $("#kira").click(function () {
+        currentScore = currentScore + kira;
+        play();
+    })
+    $("#jen").click(function () {
+        currentScore = currentScore + jen;
+        play();
+    })
 });
 
-//Reset click event
-var reset = $("<img>", {id: "reset", src: "assets/images/DarkCrystalPoster.jpg"});
-$("#reset").append(reset);
 
+//Reset click event
 $("#reset").on("click", function() {
-    counter = 0;
-    characterValue = 0;
+    currentScore = 0;
+    numberToGuess = Math.floor((Math.random() * 100) + 19);
+
+    $("#number-to-guess").empty();
+    $("#number-to-guess").append(numberToGuess);
+
+    fizgig = Math.floor((Math.random() * 12) + 1);
+    aughra = Math.floor((Math.random() * 12) + 1);
+    kira = Math.floor((Math.random() * 12) + 1);
+    jen = Math.floor((Math.random() * 12) + 1);
+    //alert('restart');
+    updateCounter();
+
+    wins = 0;
+    losses = 0;
+    alert("You have regun the adventure to restore the shard!");
 });
 
 
