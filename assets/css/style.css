@@ -16,9 +16,15 @@ body, html {
 }
 
 h1 {
-    margin: 0;
-    padding: 30px;
+    margin-bottom: 40px;
+    padding: 50px;
     background-color: rgba(0, 0, 0, .3);
+}
+
+#ntg {
+    margin: 0;
+    padding-bottom: 142px;
+    padding-top: 100px;
 }
 
 #instructions {
@@ -30,6 +36,8 @@ h1 {
 
 #resetCol {
     background-color: rgba(0, 0, 0, .3);
+    padding-bottom: 43px;
+    padding-top: 40px;
 }
 
 #totals {
@@ -43,7 +51,8 @@ h1 {
     width: 100%;
     margin-top: 100px;
     margin-bottom: 100px;
-    text-align: center;  
+    text-align: center; 
+    background-color: rgba(0, 0, 0, .3); 
 }
 
 .character-image {
