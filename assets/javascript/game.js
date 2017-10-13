@@ -7,6 +7,7 @@ var numberToGuess = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
 var counter = 0;
 var currentTotal;
 
+
 //adds random numbers to my characters
 var fizgig = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
 var aughra = Math.floor(Math.random() * ((12 - 1) + 1) + 1);
@@ -40,7 +41,7 @@ var restart = function () {
     updateCounter();
 }
 
-var play = function () {
+var playGame = function () {
     if (currentScore == numberToGuess) {
         wins = wins + 1;
         alert("You thwarted the Skeskis!")
@@ -61,19 +62,19 @@ $(document).ready(function () {
 
     $("#fizgig").click(function () {
         currentScore = currentScore + fizgig;
-        play();
+        playGame();
     })
     $("#aughra").click(function () {
         currentScore = currentScore + aughra;
-        play();
+        playGame();
     })
     $("#kira").click(function () {
         currentScore = currentScore + kira;
-        play();
+        playGame();
     })
     $("#jen").click(function () {
         currentScore = currentScore + jen;
-        play();
+        playGame();
     })
 });
 
