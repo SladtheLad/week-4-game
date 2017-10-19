@@ -96,7 +96,7 @@ $("#reset").on("click", function() {
 
     wins = 0;
     losses = 0;
-    alert("You have regun the adventure to restore the shard!");
+    alert("You have rebegun the adventure to restore the shard!");
 });
 
 
